@@ -4,3 +4,8 @@
   align-content: space-around;
   gap: 10px 15px;
 }
+
+.img {
+  height: 191px;
+  width: 286px;
+}

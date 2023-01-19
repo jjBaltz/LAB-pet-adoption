@@ -243,7 +243,7 @@ const pets = [
 
   const app = document.querySelector(".app");
 
-  let domString = "";
+  let domString = `<div class="container">`;
 
   for (const pet of pets) {
     domString += `<div class="card" style="width: 18rem;">
@@ -258,5 +258,5 @@ const pets = [
         </ul>
     </div>`;
   };
-
+  domString += `</div>`
   app.innerHTML = domString;
