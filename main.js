@@ -243,20 +243,45 @@ const pets = [
 
   const app = document.querySelector(".app");
 
-  let domString = `<div class="container">`;
+  const cardsOnDom = (pets) => {
+    let domString = `<div class="container">`;
+    for (const pet of pets) {
+      domString += `<div class="card" style="width: 18rem;">
+        <img src= ${pet.imageUrl} class="card-img-top" alt=${pet.name}>
+        <div class="card-body">
+          <p class="card-text">${pet.name}</p>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">${pet.type}</li>
+            <li class="list-group-item">${pet.color}</li>
+            <li class="list-group-item">${pet.specialSkill}</li>
+          </ul>
+      </div>`;
+    };
+    domString += `</div>`
+    app.innerHTML = domString;
+  }
+  cardsOnDom(pets);
+  
+  const filter = (arrayOfPets, type) => {
+    const typeArray = [];
+    for (const pet of arrayOfPets) {
+      if (pet.type === type) {
+        type.push(pet);
+      }
+    }
+    return typeArray;
+  }
 
-  for (const pet of pets) {
-    domString += `<div class="card" style="width: 18rem;">
-      <img src= ${pet.imageUrl} class="card-img-top" alt=${pet.name}>
-      <div class="card-body">
-        <p class="card-text">${pet.name}</p>
-      </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">${pet.type}</li>
-          <li class="list-group-item">${pet.color}</li>
-          <li class="list-group-item">${pet.specialSkill}</li>
-        </ul>
-    </div>`;
-  };
-  domString += `</div>`
-  app.innerHTML = domString;
+  const allButton = document.querySelector("#btn btn-outline-all");
+  const catsButton = document.querySelector("#btn btn-outline-cats");
+  const dogsButton = document.querySelector("#btn-outline-dogs");
+  const dinosButton = document.querySelector("#btn-outline-dinos");
+
+  allButton.addEventListener("click", () => {
+    cardsOnDom(pets);
+  })
+  catsButton.addEventListener("click", () => {
+    const catsFilter = filter(pets, "cat");
+    cardsOnDom(catsFilter)
+  })
