@@ -4,3 +4,30 @@
   align-content: space-around;
   gap: 10px 15px;
 }
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 30px 30px;
+}
+
+.btn-outline-all {
+  border-color: black;
+  color: black;
+}
+
+.btn-outline-cats {
+  border-color: orange;
+  color: orange;
+}
+
+.btn-outline-dogs {
+  border-color: blue;
+  color: blue;
+}
+
+.btn-outline-dinos {
+  border-color: green;
+  color: green;
+}
