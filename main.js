@@ -267,21 +267,30 @@ const pets = [
     const typeArray = [];
     for (const pet of arrayOfPets) {
       if (pet.type === type) {
-        type.push(pet);
+        typeArray.push(pet);
       }
     }
     return typeArray;
   }
-
-  const allButton = document.querySelector("#btn btn-outline-all");
-  const catsButton = document.querySelector("#btn btn-outline-cats");
-  const dogsButton = document.querySelector("#btn-outline-dogs");
-  const dinosButton = document.querySelector("#btn-outline-dinos");
-
+  
+  const allButton = document.querySelector("#show-all");
+  const catsButton = document.querySelector("#show-cats");
+  const dogsButton = document.querySelector("#show-dogs");
+  const dinosButton = document.querySelector("#show-dinos");
+  
   allButton.addEventListener("click", () => {
     cardsOnDom(pets);
-  })
+  });
   catsButton.addEventListener("click", () => {
     const catsFilter = filter(pets, "cat");
     cardsOnDom(catsFilter)
-  })
+  });
+  dogsButton.addEventListener("click", () => {
+    const dogsFilter = filter(pets, "dog");
+    cardsOnDom(dogsFilter)
+  });
+  dinosButton.addEventListener("click", () => {
+    const dinosFilter = filter(pets, "dino");
+    cardsOnDom(dinosFilter)
+  });
+  
