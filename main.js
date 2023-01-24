@@ -267,12 +267,12 @@ const pets = [
     const typeArray = [];
     for (const pet of arrayOfPets) {
       if (pet.type === type) {
-        typeArray.push(pet);
+        type.push(pet);
       }
     }
     return typeArray;
   }
-  
+
   const allButton = document.querySelector("#show-all");
   const catsButton = document.querySelector("#show-cats");
   const dogsButton = document.querySelector("#show-dogs");
@@ -293,4 +293,3 @@ const pets = [
     const dinosFilter = filter(pets, "dino");
     cardsOnDom(dinosFilter)
   });
-  
