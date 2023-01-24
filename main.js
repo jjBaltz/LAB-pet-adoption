@@ -267,7 +267,7 @@ const pets = [
     const typeArray = [];
     for (const pet of arrayOfPets) {
       if (pet.type === type) {
-        type.push(pet);
+        typeArray.push(pet);
       }
     }
     return typeArray;
