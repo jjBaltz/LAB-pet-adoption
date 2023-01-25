@@ -256,6 +256,7 @@ const pets = [
             <li class="list-group-item">${pet.color}</li>
             <li class="list-group-item">${pet.specialSkill}</li>
           </ul>
+        <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
       </div>`;
     };
     domString += `</div>`
@@ -318,8 +319,26 @@ const pets = [
     pets.push(newPet);
 
     cardsOnDom(pets);
+    form.reset();
     };
    const createButton = document.querySelector("#form-submit");
    createButton.addEventListener("click", createPet);
 
-//
+//creating a delete button
+   const appDiv = document.querySelector(".app");
+
+   appDiv.addEventListener("click", (event) => {
+     if (event.target.id.includes("delete")) {
+      console.log(event.target.id);
+       const [, petId] = event.target.id.split("--");
+       const indexOfPet = pets.findIndex((object) => object.id === Number(petId));
+       pets.splice(indexOfPet, 1);
+     };
+     cardsOnDom(pets);
+   });
+
+   const startApp = () => {
+   cardsOnDom(pets);
+   };
+
+   startApp();
