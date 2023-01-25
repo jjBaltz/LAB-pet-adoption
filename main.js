@@ -133,7 +133,7 @@ const pets = [
       color: "Yellow",
       specialSkill: "Does not freak out if you haven’t seen his favorite movie (The Big Lebowski).",
       type: "cat",
-      imageUrl: "https://images.unsplash.com/photo-1611236628716-ae1a7e98591b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      imageUrl: "https://media-be.chewy.com/wp-content/uploads/2017/10/cat-breed-spotted-ocicat-shutterstock_766173016.jpg"
     },
     {
       id: 18,
@@ -197,7 +197,7 @@ const pets = [
       color: "Red",
       specialSkill: "Knows the words to 4 rap songs.",
       type: "cat",
-      imageUrl: "https://i1.pickpik.com/photos/71/200/1020/cat-mackerel-photograph-wildlife-photography-preview.jpg"
+      imageUrl: "https://cdn.trendhunterstatic.com/thumbs/fashionable-feline.jpeg?auto=webp"
     },
     {
         id: 26,
@@ -240,7 +240,7 @@ const pets = [
       imageUrl: "https://source.unsplash.com/random/600x400/?Dinosaur"
     }
   ];
-
+//creating the server connection and card style
   const app = document.querySelector(".app");
 
   const cardsOnDom = (pets) => {
@@ -262,7 +262,8 @@ const pets = [
     app.innerHTML = domString;
   }
   cardsOnDom(pets);
-  
+
+//creating the filtering buttons
   const filter = (arrayOfPets, type) => {
     const typeArray = [];
     for (const pet of arrayOfPets) {
@@ -293,3 +294,32 @@ const pets = [
     const dinosFilter = filter(pets, "dino");
     cardsOnDom(dinosFilter)
   });
+
+//creating a "new pet" button with input
+  const createPet = (event) => {
+    event.preventDefault();
+
+    // const name = document.querySelector("#name");
+    // const color = document.querySelector("#color");
+    // const specialSkill = document.querySelector("#specialSkill");
+    // const type = document.querySelector("#type");
+    // const imageUrl = document.querySelector("#imageUrl");
+
+    const newPet = {
+      id: pets.length + 1,
+      name: document.querySelector("#name").value,
+      color: document.querySelector("#color").value,
+      specialSkill: document.querySelector("#specialSkill").value,
+      type: document.querySelector("#type").value,
+      imageUrl: document.querySelector("#imageUrl").value
+    };
+    console.log("new pet", newPet);
+
+    pets.push(newPet);
+
+    cardsOnDom(pets);
+    };
+   const createButton = document.querySelector("#form-submit");
+   createButton.addEventListener("click", createPet);
+
+//

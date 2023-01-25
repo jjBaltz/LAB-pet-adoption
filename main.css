@@ -10,6 +10,12 @@
   flex-flow: row wrap;
   justify-content: center;
   gap: 30px 30px;
+  padding: 30px;
+}
+
+.create {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .btn-outline-all {
@@ -30,4 +36,9 @@
 .btn-outline-dinos {
   border-color: green;
   color: green;
+}
+
+.btn-create {
+  background: black;
+  color: white;
 }
