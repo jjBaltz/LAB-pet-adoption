@@ -16,6 +16,7 @@
 .create {
   display: flex;
   justify-content: flex-end;
+  padding: 30px;
 }
 
 .btn-outline-all {
@@ -39,6 +40,6 @@
 }
 
 .btn-create {
-  background: black;
+  background: #c60505;
   color: white;
 }

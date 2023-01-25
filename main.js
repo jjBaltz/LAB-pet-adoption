@@ -299,13 +299,7 @@ const pets = [
 //creating a "new pet" button with input
   const createPet = (event) => {
     event.preventDefault();
-
-    // const name = document.querySelector("#name");
-    // const color = document.querySelector("#color");
-    // const specialSkill = document.querySelector("#specialSkill");
-    // const type = document.querySelector("#type");
-    // const imageUrl = document.querySelector("#imageUrl");
-
+    
     const newPet = {
       id: pets.length + 1,
       name: document.querySelector("#name").value,
@@ -319,7 +313,7 @@ const pets = [
     pets.push(newPet);
 
     cardsOnDom(pets);
-    form.reset();
+    document.querySelector("form").reset();
     };
    const createButton = document.querySelector("#form-submit");
    createButton.addEventListener("click", createPet);
@@ -329,7 +323,6 @@ const pets = [
 
    appDiv.addEventListener("click", (event) => {
      if (event.target.id.includes("delete")) {
-      console.log(event.target.id);
        const [, petId] = event.target.id.split("--");
        const indexOfPet = pets.findIndex((object) => object.id === Number(petId));
        pets.splice(indexOfPet, 1);
